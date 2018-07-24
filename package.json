@@ -1,0 +1,28 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "friendfinder",
+  "main": "server.js",
+  "dependencies": {
+    "autoloader": "^2.1.0",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyLeeNgu/Friendfinder.git"
+  },
+  "keywords": [
+    "friendfinder"
+  ],
+  "author": "anthony",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnthonyLeeNgu/Friendfinder/issues"
+  },
+  "homepage": "https://github.com/AnthonyLeeNgu/Friendfinder#readme"
+}
