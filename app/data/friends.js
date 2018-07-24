@@ -1,35 +1,61 @@
-var friendData = [
+var friends = [
+    
     {
-        "name": "Ahmed",
-        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nicolas_Cage_-_66%C3%A8me_Festival_de_Venise_%28Mostra%29.jpg/220px-Nicolas_Cage_-_66%C3%A8me_Festival_de_Venise_%28Mostra%29.jpg",
-        "scores": [
-            5,
-            1,
-            4,
-            4,
-            5,
-            1,
-            2,
-            5,
-            4,
-            1
+        "name":"Ahmed",
+        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "scores":[
+            "5",
+            "1",
+            "4",
+            "4",
+            "5",
+            "1",
+            "2",
+            "5",
+            "4",
+            "1"
+          ]
+     },
+    
+    
+    
+    
+    
+    {
+    "name":"Lebron James",
+    "photo":"https://clutchpoints.com/wp-content/uploads/2018/01/LeBron-James-lakers.jpg",
+    "scores":[
+        "4",
+        "2",
+        "2",
+        "4",
+        "7",
+        "1",
+        "6",
+        "5",
+        "3",
+        "3"
         ]
-    }, {
-        "name": "Riley",
-        "photo": "http://24.media.tumblr.com/tumblr_lrn8s9Rhtp1qi7kbeo1_500.gif",
-        "scores": [
-            5,
-            3,
-            4,
-            5,
-            4,
-            1,
-            5,
-            2,
-            4,
-            2
+  },
+
+
+  {
+    "name":"Kevin Hart",
+    "photo":"http://globalspin365.com/wp-content/uploads/2017/09/Everyday-Struggle-Kevin-Hart.jpg",
+    "scores":[
+        "4",
+        "2",
+        "2",
+        "4",
+        "7",
+        "1",
+        "6",
+        "5",
+        "3",
+        "3"
         ]
-    },
+  }
+
 ];
 
-module.exports = friendData;
+module.exports = friends;
