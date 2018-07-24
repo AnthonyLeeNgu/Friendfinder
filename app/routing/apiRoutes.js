@@ -1,46 +1,38 @@
-var friends = require("../data/friends");
+var express = require("express");
 
-module.exports = function(app) {
-  // Return all friends found in friends.js as JSON
-    app.get("/api/friends", function(req, res) {
-    res.json(friends);
-  });
+var app = express();
 
-  app.post("/api/friends", function(req, res) {
-    console.log(req.body.scores);
+var friendData = require("../data/friends");
+var sum = 0
 
-    // Receive user details (name, photo, scores)
-    var user = req.body;
+module.exports = function (app) {
+    app.get("/api/home", function (req, res) {
+        res.json(tableData)
+    });
 
-    // parseInt for scores
-    for(var i = 0; i < user.scores.length; i++) {
-      user.scores[i] = parseInt(user.scores[i]);
-    }
+    app.get("/api/friends", function (req, res) {
+        res.json(friendData)
+    });
 
-    // default friend match is the first friend but result will be whoever has the minimum difference in scores
-    var bestFriendIndex = 0;
-    var minimumDifference = 40;
+    app.post("/api/friends", function (req, res) {
+        var currentReturnObject;
+        var currentLowestTotal = null;
+        for (i = 0; i < friendData.length; i++) {
+            let total = 0;
+            for (j = 0; j < friendData[i].scores.length; j++) {
 
-    // in this for-loop, start off with a zero difference and compare the user and the ith friend scores, one set at a time
-    //  whatever the difference is, add to the total difference
-    for(var i = 0; i < friends.length; i++) {
-      var totalDifference = 0;
-      for(var j = 0; j < friends[i].scores.length; j++) {
-        var difference = Math.abs(user.scores[j] - friends[i].scores[j]);
-        totalDifference += difference;
-      }
+                total += Math.abs(friendData[i].scores[j] - parseInt(req.body.scores[j]));
 
-      // if there is a new minimum, change the best friend index and set the new minimum for next iteration comparisons
-      if(totalDifference < minimumDifference) {
-        bestFriendIndex = i;
-        minimumDifference = totalDifference;
-      }
-    }
+            };
+            if (total < currentLowestTotal || currentLowestTotal === null) {
+                currentLowestTotal = total;
+                currentReturnObject = friendData[i];
+            }
+        };
 
-    // after finding match, add user to friend array
-    friends.push(user);
+        friendData.push(req.body);
 
-    // send back to browser the best friend match
-    res.json(friends[bestFriendIndex]);
-  });
+        res.json(currentReturnObject);
+        console.log(friendData)
+    });
 };
